@@ -1,0 +1,408 @@
+1.	
+	Create a matrix of mxn dimension through user input and display the
+elements in matrix format.
+
+
+
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+matrix = [[0 for j in range(n)] for i in range(m)]
+print("Enter the matrix elements row-wise:")
+for i in range(m):
+    for j in range(n):
+        matrix[i][j] = int(input())
+print("The matrix is:")
+for i in range(m):
+    for j in range(n):
+        print(matrix[i][j], end="\t")
+    print()
+
+
+
+2. Create a zero matrix and one’s matrix of mxn dimension and perform
+their addition.
+
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+
+zero_matrix = [[0 for j in range(n)] for i in range(m)]
+
+ones_matrix = [[1 for j in range(n)] for i in range(m)]
+result_matrix = [[zero_matrix[i][j] + ones_matrix[i][j] for j in range(n)] for i in range(m)]
+print("Result Matrix:")
+for row in result_matrix:
+    print(row)
+
+
+
+3. Create a matrix of mxn dimension through user input and perform
+addition of elements row-wise and column-wise.
+
+
+
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+
+matrix = []
+print("Enter the matrix elements row-wise:")
+for i in range(m):
+    row = []
+    for j in range(n):
+        element = int(input())
+        row.append(element)
+    matrix.append(row)
+
+print("The matrix is:")
+for row in matrix:
+    print(row)
+
+row_sum = []
+for i in range(m):
+    row_sum.append(sum(matrix[i]))
+
+print("Row-wise sum is:", row_sum)
+
+col_sum = []
+for j in range(n):
+    col_sum.append(sum(matrix[i][j] for i in range(m)))
+
+print("Column-wise sum is:", col_sum)
+
+
+4. Create a matrix of mxn dimension through user input and sort its
+elements row-wise.
+
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+
+matrix = []
+
+print("Enter the matrix elements row-wise:")
+for i in range(m):
+    row = []
+    for j in range(n):
+        element = int(input())
+        row.append(element)
+    matrix.append(row)
+
+print("The matrix is:")
+for row in matrix:
+    print(row)
+
+for i in range(m):
+    matrix[i].sort()
+
+print("The sorted matrix is:")
+for row in matrix:
+    print(row)
+
+
+
+5. Input two matrices and perform matrix multiplication.
+
+m1 = int(input("Enter number of rows for matrix 1: "))
+n1 = int(input("Enter number of columns for matrix 1: "))
+m2 = int(input("Enter number of rows for matrix 2: "))
+n2 = int(input("Enter number of columns for matrix 2: "))
+
+matrix1 = []
+matrix2 = []
+
+print("Enter the matrix 1 elements row-wise:")
+for i in range(m1):
+    row = []
+    for j in range(n1):
+        element = int(input())
+        row.append(element)
+    matrix1.append(row)
+
+print("Matrix 1 is:")
+for row in matrix1:
+    print(row)
+
+print("Enter the matrix 2 elements row-wise:")
+for i in range(m2):
+    row = []
+    for j in range(n2):
+        element = int(input())
+        row.append(element)
+    matrix2.append(row)
+
+print("Matrix 2 is:")
+for row in matrix2:
+    print(row)
+
+if n1 != m2:
+    print("Matrices cannot be multiplied!")
+else:
+    
+    result = [[0 for j in range(n2)] for i in range(m1)]
+
+    for i in range(m1):
+        for j in range(n2):
+            for k in range(m2):
+                result[i][j] += matrix1[i][k] * matrix2[k][j]
+
+    print("The result of matrix multiplication is:")
+    for row in result:
+        print(row)
+
+
+6. Create a matrix of mxn dimension through user input (both zero and
+non-zero elements) and print its non zero elements with index value.
+
+
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+
+matrix = []
+
+print("Enter the matrix elements row-wise:")
+for i in range(m):
+    row = []
+    for j in range(n):
+        element = int(input())
+        row.append(element)
+    matrix.append(row)
+
+print("The matrix is:")
+for row in matrix:
+    print(row)
+
+non_zero_elements = []
+for i in range(m):
+    for j in range(n):
+        if matrix[i][j] != 0:
+            non_zero_elements.append((i, j, matrix[i][j]))
+
+print("The non-zero elements with index values are:")
+for element in non_zero_elements:
+    print(f"({element[0]}, {element[1]}) = {element[2]}")
+
+
+
+
+
+
+7. Input the following records through matrix and display with given headings. Filter the records who have salary gt 3000 and display.
+
+
+m= 3
+n = 6
+
+# Initialize the matrix with empty strings 
+
+matrix= [["" for j in range(n)] for i in range(m)]
+
+# Take user input for each element in the matrix
+
+matrix[0][0]="EmployeeID"
+
+matrix[0][1]="EName"
+
+matrix[0][2]="DeptId"
+
+matrix[0][3]="Salary"
+
+matrix[0][4]="Dname" 
+matrix[0][5]="Dlocation"
+
+for i in range(1,m):
+
+    for j in range(6):
+
+        matrix[i][j] = input (f"Enter data ({i}, {matrix[0][j]}): ")
+
+print("Result matrix:")
+
+print (matrix[0])
+
+for i in range(1,m):
+    salary=int(matrix[i][3])
+
+    if salary>3000:
+
+        print(matrix[i])
+
+
+
+8.  Create a matrix of mxn dimension through user input and display its
+upper triangle elements
+
+
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+
+matrix = []
+
+print("Enter the matrix elements row-wise:")
+for i in range(m):
+    row = []
+    for j in range(n):
+        element = int(input())
+        row.append(element)
+    matrix.append(row)
+
+print("The matrix is:")
+for row in matrix:
+    print(row)
+
+upper_triangle_elements = []
+for i in range(m):
+    for j in range(n):
+        if j >= i:
+            upper_triangle_elements.append(matrix[i][j])
+
+print("The upper triangle elements are:")
+print(upper_triangle_elements)
+
+
+9.Create a matrix of mxn dimension through user input and display its
+lower triangle elements
+
+
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+
+matrix = []
+
+print("Enter the matrix elements row-wise:")
+for i in range(m):
+    row = []
+    for j in range(n):
+        element = int(input())
+        row.append(element)
+    matrix.append(row)
+
+print("The matrix is:")
+for row in matrix:
+    print(row)
+
+lower_triangle_elements = []
+for i in range(m):
+    for j in range(n):
+        if j <= i:
+            lower_triangle_elements.append(matrix[i][j])
+
+print("The lower triangle elements are:")
+print(lower_triangle_elements)
+
+
+10. Create a matrix of mxn dimension through user inpu find the sum of
+diagonal elements.
+
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+
+matrix = []
+
+print("Enter the matrix elements row-wise:")
+for i in range(m):
+    row = []
+    for j in range(n):
+        element = int(input())
+        row.append(element)
+    matrix.append(row)
+
+print("The matrix is:")
+for row in matrix:
+    print(row)
+
+sum_of_diagonal_elements = 0
+for i in range(min(m, n)):
+    sum_of_diagonal_elements += matrix[i][i]
+
+print("The sum of diagonal elements is:", sum_of_diagonal_elements)
+
+
+
+11. Create a matrix of mxn dimension through user input and check for
+identity matrix.
+
+
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+
+matrix = []
+
+print("Enter the matrix elements row-wise:")
+for i in range(m):
+    row = []
+    for j in range(n):
+        element = int(input())
+        row.append(element)
+    matrix.append(row)
+
+print("The matrix is:")
+for row in matrix:
+    print(row)
+
+is_identity_matrix = True
+for i in range(m):
+    for j in range(n):
+        if i == j:
+            if matrix[i][j] != 1:
+                is_identity_matrix = False
+                break
+        else:
+            if matrix[i][j] != 0:
+                is_identity_matrix = False
+                break
+
+if is_identity_matrix:
+    print("The matrix is an identity matrix.")
+else:
+    print("The matrix is not an identity matrix.")
+
+
+#12. Input the following records through matrix and display with given headings.
+
+
+m = 4
+
+n = 5
+
+# Initialize the matrix with empty strings
+
+matrix = [["" for j in range(n)] for i in range(m)]
+
+# Take user input for each element in the matrix
+
+matrix[0][0]="FirstName"
+
+matrix[0][1]="LastName"
+matrix[0][2]="Address"
+
+matrix[0][3]="City"
+
+matrix[0][4]="Age"
+
+for i in range(1,m):
+
+    for j in range(n):
+
+        matrix[i][j] = input (f"Enter data ({i}, {matrix[0][j]}): ") 
+print("Printing records with age>40")
+
+print(matrix[0])
+
+for i in range(1,m):
+
+    age=int(matrix[i][4])
+
+    if age>40:
+
+        print (matrix[i])
+
+print("Printing records with last name as Man or Duck")
+
+print(matrix[0])
+
+for i in range(1,m):
+
+    if matrix[i][1]=="Man" or matrix[i][1]=="Duck":
+
+
+        print(matrix[i])
+
+
